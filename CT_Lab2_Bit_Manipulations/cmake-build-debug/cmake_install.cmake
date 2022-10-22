@@ -1,4 +1,4 @@
-# Install script for directory: /Users/armandoshala/CLionProjects/CT_Lab2_Bit_Manipulations
+# Install script for directory: /Users/armandoshala/CLionProjects/CT1_hs22_Labs/CT_Lab2_Bit_Manipulations
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/armandoshala/CLionProjects/CT_Lab2_Bit_Manipulations/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/armandoshala/CLionProjects/CT1_hs22_Labs/CT_Lab2_Bit_Manipulations/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

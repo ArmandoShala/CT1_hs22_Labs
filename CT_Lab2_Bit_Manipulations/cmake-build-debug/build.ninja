@@ -36,7 +36,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /Users/armandoshala/CLionProjects/CT_Lab2_Bit_Manipulations/cmake-build-debug/
+cmake_ninja_workdir = /Users/armandoshala/CLionProjects/CT1_hs22_Labs/CT_Lab2_Bit_Manipulations/cmake-build-debug/
 # =============================================================================
 # Object build statements for EXECUTABLE target CT_Lab2_Bit_Manipulations
 
@@ -46,7 +46,7 @@ cmake_ninja_workdir = /Users/armandoshala/CLionProjects/CT_Lab2_Bit_Manipulation
 
 build cmake_object_order_depends_target_CT_Lab2_Bit_Manipulations: phony || CMakeFiles/CT_Lab2_Bit_Manipulations.dir
 
-build CMakeFiles/CT_Lab2_Bit_Manipulations.dir/main.c.o: C_COMPILER__CT_Lab2_Bit_Manipulations_Debug /Users/armandoshala/CLionProjects/CT_Lab2_Bit_Manipulations/main.c || cmake_object_order_depends_target_CT_Lab2_Bit_Manipulations
+build CMakeFiles/CT_Lab2_Bit_Manipulations.dir/main.c.o: C_COMPILER__CT_Lab2_Bit_Manipulations_Debug /Users/armandoshala/CLionProjects/CT1_hs22_Labs/CT_Lab2_Bit_Manipulations/main.c || cmake_object_order_depends_target_CT_Lab2_Bit_Manipulations
   DEP_FILE = CMakeFiles/CT_Lab2_Bit_Manipulations.dir/main.c.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu99
   OBJECT_DIR = CMakeFiles/CT_Lab2_Bit_Manipulations.dir
@@ -76,7 +76,7 @@ build CT_Lab2_Bit_Manipulations: C_EXECUTABLE_LINKER__CT_Lab2_Bit_Manipulations_
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/armandoshala/CLionProjects/CT_Lab2_Bit_Manipulations/cmake-build-debug && "/Users/armandoshala/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /Users/armandoshala/CLionProjects/CT1_hs22_Labs/CT_Lab2_Bit_Manipulations/cmake-build-debug && "/Users/armandoshala/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -87,7 +87,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/armandoshala/CLionProjects/CT_Lab2_Bit_Manipulations/cmake-build-debug && "/Users/armandoshala/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/CLion.app/Contents/bin/cmake/mac/bin/cmake" --regenerate-during-build -S/Users/armandoshala/CLionProjects/CT_Lab2_Bit_Manipulations -B/Users/armandoshala/CLionProjects/CT_Lab2_Bit_Manipulations/cmake-build-debug
+  COMMAND = cd /Users/armandoshala/CLionProjects/CT1_hs22_Labs/CT_Lab2_Bit_Manipulations/cmake-build-debug && "/Users/armandoshala/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/CLion.app/Contents/bin/cmake/mac/bin/cmake" --regenerate-during-build -S/Users/armandoshala/CLionProjects/CT1_hs22_Labs/CT_Lab2_Bit_Manipulations -B/Users/armandoshala/CLionProjects/CT1_hs22_Labs/CT_Lab2_Bit_Manipulations/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -103,7 +103,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 
 #############################################
-# Folder: /Users/armandoshala/CLionProjects/CT_Lab2_Bit_Manipulations/cmake-build-debug
+# Folder: /Users/armandoshala/CLionProjects/CT1_hs22_Labs/CT_Lab2_Bit_Manipulations/cmake-build-debug
 
 build all: phony CT_Lab2_Bit_Manipulations
 
