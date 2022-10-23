@@ -1,0 +1,252 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ; ------------------------------------------------------
+                       ------------
+    2 00000000         ; --  _____       ______  _____                         
+                                  -
+    3 00000000         ; -- |_   _|     |  ____|/ ____|                        
+                                  -
+    4 00000000         ; --   | |  _ __ | |__  | (___    Institute of Embedded 
+                       Systems    -
+    5 00000000         ; --   | | | '_ \|  __|  \___ \   Zurich University of  
+                                  -
+    6 00000000         ; --  _| |_| | | | |____ ____) |  Applied Sciences      
+                                  -
+    7 00000000         ; -- |_____|_| |_|______|_____/   8401 Winterthur, Switz
+                       erland     -
+    8 00000000         ; ------------------------------------------------------
+                       ------------
+    9 00000000         ; --
+   10 00000000         ; -- sumdiff.s
+   11 00000000         ; --
+   12 00000000         ; -- CT1 P05 Summe und Differenz
+   13 00000000         ; --
+   14 00000000         ; -- $Id: sumdiff.s 705 2014-09-16 11:44:22Z muln $
+   15 00000000         ; ------------------------------------------------------
+                       ------------
+   16 00000000         ;Directives
+   17 00000000                 PRESERVE8
+   18 00000000                 THUMB
+   19 00000000         
+   20 00000000         ; ------------------------------------------------------
+                       ------------
+   21 00000000         ; -- Symbolic Literals
+   22 00000000         ; ------------------------------------------------------
+                       ------------
+   23 00000000 60000200 
+                       ADDR_DIP_SWITCH_7_0
+                               EQU              0x60000200
+   24 00000000 60000201 
+                       ADDR_DIP_SWITCH_15_8
+                               EQU              0x60000201
+   25 00000000 60000100 
+                       ADDR_LED_7_0
+                               EQU              0x60000100
+   26 00000000 60000101 
+                       ADDR_LED_15_8
+                               EQU              0x60000101
+   27 00000000 60000102 
+                       ADDR_LED_23_16
+                               EQU              0x60000102
+   28 00000000 60000103 
+                       ADDR_LED_31_24
+                               EQU              0x60000103
+   29 00000000         
+   30 00000000         ; ------------------------------------------------------
+                       ------------
+   31 00000000         ; -- myCode
+   32 00000000         ; ------------------------------------------------------
+                       ------------
+   33 00000000                 AREA             MyCode, CODE, READONLY
+   34 00000000         
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   35 00000000         main    PROC
+   36 00000000                 EXPORT           main
+   37 00000000         
+   38 00000000         user_prog
+   39 00000000         ; STUDENTS: To be programmed
+   40 00000000 480C            LDR              R0, =ADDR_DIP_SWITCH_15_8 ; loa
+                                                            d address of DIP sw
+                                                            itch 15-8 (Operand 
+                                                            A)
+   41 00000002 490D            LDR              R1, =ADDR_DIP_SWITCH_7_0 ; load
+                                                             address of DIP swi
+                                                            tch 7-0 (Operand B)
+                                                            
+   42 00000004 4E0D            LDR              R6, =ADDR_LED_15_8 ; load addre
+                                                            ss of LED 15-8 R6
+   43 00000006 4F0E            LDR              R7, =ADDR_LED_31_24 ; load addr
+                                                            ess of LED 31-24 R7
+                                                            
+   44 00000008         
+   45 00000008 7802            LDRB             R2, [R0]    ; load value of DIP
+                                                             switch 15-8 (Opera
+                                                            nd A)
+   46 0000000A 780B            LDRB             R3, [R1]    ; load value of DIP
+                                                             switch 7-0 (Operan
+                                                            d B)
+   47 0000000C 0612            LSLS             R2, R2, #24 ; shift left operan
+                                                            d A by 24 bits
+   48 0000000E 061B            LSLS             R3, R3, #24 ; shift left operan
+                                                            d B by 24 bits
+   49 00000010         
+   50 00000010 18D4            ADDS             R4, R2, R3  ; add operand A and
+                                                             operand B
+   51 00000012 F3EF 8000       MRS              R0, APSR    ; move APSR to R0
+   52 00000016 0E00            LSRS             R0, R0, #24 ; shift left APSR b
+                                                            y 4 bits
+   53 00000018 7030            STRB             R0, [R6]    ; store APSR in LED
+                                                             15-8
+   54 0000001A 480A            LDR              R0, =ADDR_LED_7_0 ; load addres
+                                                            s of LED 7-0 (sum) 
+                                                            in R6
+   55 0000001C 0E24            LSRS             R4, R4, #24 ; shift right sum b
+                                                            y 24 bits
+   56 0000001E 7004            STRB             R4, [R0]    ; store sum in LED 
+                                                            7-0
+   57 00000020         
+   58 00000020 1AD5            SUBS             R5, R2, R3  ; subtract operand 
+                                                            B from operand A
+   59 00000022 F3EF 8100       MRS              R1, APSR    ; move APSR to R1
+   60 00000026 0E09            LSRS             R1, R1, #24 ; shift left APSR b
+                                                            y 4 bits
+   61 00000028 7039            STRB             R1, [R7]    ; store APSR in LED
+                                                             31-24
+   62 0000002A 4907            LDR              R1, =ADDR_LED_23_16 ; load addr
+                                                            ess of LED 23-16 (d
+                                                            ifference) in R7
+   63 0000002C 0E2D            LSRS             R5, R5, #24 ; shift right diffe
+                                                            rence by 24 bits
+   64 0000002E 700D            STRB             R5, [R1]    ; store difference 
+                                                            in LED 23-16
+
+
+
+ARM Macro Assembler    Page 3 
+
+
+   65 00000030         
+   66 00000030         
+   67 00000030         
+   68 00000030         
+   69 00000030         
+   70 00000030         ; END: To be programmed
+   71 00000030 E7E6            B                user_prog
+   72 00000032 00 00           ALIGN
+   73 00000034         ; ------------------------------------------------------
+                       ------------
+   74 00000034         ; End of code
+   75 00000034         ; ------------------------------------------------------
+                       ------------
+   76 00000034                 ENDP
+   77 00000034                 END
+              60000201 
+              60000200 
+              60000101 
+              60000103 
+              60000100 
+              60000102 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0 --depend=.\bu
+ild\sumdiff.d -o.\build\sumdiff.o -I.\RTE\_Target_1 -IC:\Users\armandoshala\App
+Data\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\Device\Include -IC:\Users\armando
+shala\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\Device\Include\m0 -IC:\U
+sers\armandoshala\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\HAL\Include 
+--predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 537" --predefin
+e="_RTE_ SETA 1" --predefine="_RTE_ SETA 1" --list=.\build\sumdiff.lst app\sumd
+iff.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+MyCode 00000000
+
+Symbol: MyCode
+   Definitions
+      At line 33 in file app\sumdiff.s
+   Uses
+      None
+Comment: MyCode unused
+main 00000000
+
+Symbol: main
+   Definitions
+      At line 35 in file app\sumdiff.s
+   Uses
+      At line 36 in file app\sumdiff.s
+Comment: main used once
+user_prog 00000000
+
+Symbol: user_prog
+   Definitions
+      At line 38 in file app\sumdiff.s
+   Uses
+      At line 71 in file app\sumdiff.s
+Comment: user_prog used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+ADDR_DIP_SWITCH_15_8 60000201
+
+Symbol: ADDR_DIP_SWITCH_15_8
+   Definitions
+      At line 24 in file app\sumdiff.s
+   Uses
+      At line 40 in file app\sumdiff.s
+Comment: ADDR_DIP_SWITCH_15_8 used once
+ADDR_DIP_SWITCH_7_0 60000200
+
+Symbol: ADDR_DIP_SWITCH_7_0
+   Definitions
+      At line 23 in file app\sumdiff.s
+   Uses
+      At line 41 in file app\sumdiff.s
+Comment: ADDR_DIP_SWITCH_7_0 used once
+ADDR_LED_15_8 60000101
+
+Symbol: ADDR_LED_15_8
+   Definitions
+      At line 26 in file app\sumdiff.s
+   Uses
+      At line 42 in file app\sumdiff.s
+Comment: ADDR_LED_15_8 used once
+ADDR_LED_23_16 60000102
+
+Symbol: ADDR_LED_23_16
+   Definitions
+      At line 27 in file app\sumdiff.s
+   Uses
+      At line 62 in file app\sumdiff.s
+Comment: ADDR_LED_23_16 used once
+ADDR_LED_31_24 60000103
+
+Symbol: ADDR_LED_31_24
+   Definitions
+      At line 28 in file app\sumdiff.s
+   Uses
+      At line 43 in file app\sumdiff.s
+Comment: ADDR_LED_31_24 used once
+ADDR_LED_7_0 60000100
+
+Symbol: ADDR_LED_7_0
+   Definitions
+      At line 25 in file app\sumdiff.s
+   Uses
+      At line 54 in file app\sumdiff.s
+Comment: ADDR_LED_7_0 used once
+6 symbols
+344 symbols in table
