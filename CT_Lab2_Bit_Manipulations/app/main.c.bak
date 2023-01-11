@@ -21,13 +21,13 @@ int main(void) {
 	
  while (1) { 
 	 // 3.1
-	 uint8_t dipBytes = CT_DIPSW->BYTE.S7_0;
+	 uint8_t dipBytes = CT_DIPSW->BYTE.S7_0; // Dip
 	 dipBytes |= BRIGHT;
 	 dipBytes &= DARK;
 	 CT_LED->BYTE.LED7_0 = dipBytes;
 	 
 	 // 3.2
-	 uint8_t BUTTONS = read_byte(ADR_BUTTON);
+	 uint8_t BUTTONS = CT_BUTTON;
 	 BUTTONS = BUTTONS & MASK_WORD;
 	 CT_LED->BYTE.LED31_24 = BUTTONS;
 	 uint8_t B1 = (BUTTONS >> 0 ) & 1;

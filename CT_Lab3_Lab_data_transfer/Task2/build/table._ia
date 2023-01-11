@@ -1,0 +1,11 @@
+--cpu Cortex-M0 --pd "__EVAL SETA 1" -g
+-I.\RTE\_Target_1
+-IC:\Users\armandoshala\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\Device\Include
+-IC:\Users\armandoshala\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\Device\Include\m0
+-IC:\Users\armandoshala\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\HAL\Include
+--pd "__UVISION_VERSION SETA 537"
+--pd "_RTE_ SETA 1"
+--pd "_RTE_ SETA 1"
+--list .\build\table.lst
+--xref -o .\build\table.o
+--depend .\build\table.d "app\table.s"
